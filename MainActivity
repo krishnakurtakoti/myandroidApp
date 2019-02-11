@@ -1,0 +1,87 @@
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+//import com.example.myapplication.R;
+
+//Note:Write the method for onClock Listener outside the on create method to avoid errors,
+//Import all the Packages for the other classes.Reference:https://www.dev2qa.com/how-to-auto-import-all-class-in-android-studio/
+public class MainActivity extends AppCompatActivity {
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView simpletext1 = (TextView) findViewById(R.id.text1);
+        EditText simpleEditText1 = (EditText) findViewById(R.id.plotLength);
+        EditText simpleEditText2 = (EditText) findViewById(R.id.plotBreadth);
+        EditText simpleEditText3 = (EditText) findViewById(R.id.numberOfFloors);
+        EditText simpleEditText4 = (EditText) findViewById(R.id.avgDistanceToRoad);
+        Button nextButton = (Button) findViewById(R.id.next);
+        nextButton.setOnClickListener(mCorkyListener);
+
+        simpletext1.setText("Please enter:\n" +
+                "The dimensions of the plot below(in feet e.g 30 x 40,40x60).\n"+"\n"+
+                "The number of floors(which includes the ground floor).\n"+ "\n"+
+                "The distance from the centre of the plot to the road(in metre).");
+
+        String strValue1 = simpleEditText1.getText().toString();
+        String strValue2 = simpleEditText2.getText().toString();
+        String strValue3 = simpleEditText3.getText().toString();
+        String strValue4 = simpleEditText4.getText().toString();
+
+       /* nextButton.setOnClickListener(new View.OnClickListener() {
+            // implement onClick callback method
+            public void onClick(View v) {
+                // some code
+               // Intent intent = new Intent(this, SecondActivity.class);
+               // startActivity(intent);
+            }
+        });
+        */
+
+         /*  // nextButton.setOnClickListener(new View.OnClickListener() {
+
+                                          public void onClick(View v) {
+
+                                              Intent getNameScreenIntent = new Intent(this, SecondScreen.class);
+                                              startActivity(getNameScreenIntent);
+                                              //final  int result = 1;
+                                              // getNameScreenIntent.putExtra("callingActivity",MainActivity);
+                                              // startActivityForResult(getNameScreenIntent,result);
+                                          }
+           // });
+
+           */
+
+
+    }
+
+    private View.OnClickListener mCorkyListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            // do something when the button is clicked
+            // Yes we will handle click here but which button clicked??? We don't know
+            // final  int result = 1;
+            //Intent intent = new Intent(this, SecondScreen.class);
+            //startActivity(intent);
+            Intent myIntent = new Intent(MainActivity.this, SecondScreen.class);
+            //myIntent.putExtra("key", value); //Optional parameters
+            MainActivity.this.startActivity(myIntent);
+
+        }
+    };
+
+
+
+
+
+
+}
+
+

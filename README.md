@@ -1,12 +1,19 @@
 # myandroidApp
 app simple survey and question app
                                                 
-                                                            layout
-MainActivity.java                                   activity_main.xml
-SecondScreen.java                                    activity_second.xml
-ThirdScreen.java        ---RVAdapter.java            recycler_view.xml ---- item.xml
-FouthScreen.java                                     activity_fourth.xml
-
+                                                          
+MainActivity.java                                
+SecondScreen.java                                 
+ThirdScreen.java        ---RVAdapter.java            
+FouthScreen.java                                    
+                         
+                         layout
+                              
+                              
+                              activity_main.xml
+                                 activity_second.xml
+           recycler_view.xml ---- item.xml
+                                   activity_fourth.xml
 
 AndroidManifest.xml
 strings.xml

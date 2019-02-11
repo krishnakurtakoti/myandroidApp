@@ -17,10 +17,12 @@ Rather than doing this we can simply pass RequestManager object in Adapter’s c
 
 
 private RequestManager glide;
+
 public WalletsAdapter(RequestManager glide, List<MediaModel> modelList) {
     this.glide = glide;
     this.modelList = modelList;
 }
+
 @Override
 public void onBindViewHolder(final WalletViewHolder holder, int position) {
 
@@ -28,5 +30,6 @@ public void onBindViewHolder(final WalletViewHolder holder, int position) {
   
 }
 And adapter constructor would look like :
+
 WalletsAdapter adpater = new WalletsAdapter(Glide.with(this), modelList);
 

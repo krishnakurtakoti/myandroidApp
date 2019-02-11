@@ -1,5 +1,30 @@
 # myandroidApp
 app simple survey and question app
+                                                
+                                                            layout
+MainActivity.java                                   activity_main.xml
+SecondScreen.java                                    activity_second.xml
+ThirdScreen.java        ---RVAdapter.java            recycler_view.xml ---- item.xml
+FouthScreen.java                                     activity_fourth.xml
+
+
+AndroidManifest.xml
+strings.xml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 refrences:1.https://android.jlelse.eu/using-glide-few-tips-to-be-a-pro-60f41e29d30a
 
 So always pass current context to the Glide in Activity or Fragment using :

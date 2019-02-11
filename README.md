@@ -13,18 +13,6 @@ strings.xml
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 refrences:1.https://android.jlelse.eu/using-glide-few-tips-to-be-a-pro-60f41e29d30a
 
 So always pass current context to the Glide in Activity or Fragment using :

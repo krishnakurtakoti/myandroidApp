@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application15_extends My Application</string>
+    <string name="display"> Next </string>
+    <string name="hint_length">Plot Length: 30 (in feet)</string>
+    <string name="hint_breadth">Plot Breadth: 40 (in feet) </string>
+    <string name="hint_floor_count">Number of floors: 2 (Ground + 1st Floor)</string>
+    <string name="hint_distance_to_road"> Distance from plot centre to road: 10 (in metre) </string>
+    <string name="hint_setBackLeft">Setback to the left. Distance (in feet) </string>
+    <string name="hint_setBackRight">Setback to the right. Distance (in feet) </string>
+    <string name="hint_setBackFront">Setback in front. Distance (in feet) </string>
+    <string name="hint_setBackBack">Setback at back. Distance (in feet) </string>
+
+</resources>

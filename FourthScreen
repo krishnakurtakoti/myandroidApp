@@ -1,0 +1,174 @@
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import static java.lang.Integer.parseInt;
+
+public class FourthScreen extends Activity {
+
+    private TextView tv,tv1;
+    String strValue5,strValue6,strValue7,strValue8;
+    String strValue1,strValue2,strValue3,strValue4;
+    String bmiLabel = ""; String markingLabel2 = null;String markingLabel1= null;
+    String markingLabel3 = null;String markingLabel4= null;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fourth);
+        tv = (TextView) findViewById(R.id.text_show);
+        tv1 = (TextView) findViewById(R.id.result);
+
+        strValue5 = getIntent().getStringExtra("EdiTtEXTvALUE");
+        strValue6 = getIntent().getStringExtra("EdiTtEXTvALUE1");
+        strValue7 = getIntent().getStringExtra("EdiTtEXTvALUE2");
+        strValue8 = getIntent().getStringExtra("EdiTtEXTvALUE3");
+        strValue1 = getIntent().getStringExtra("EdiTtEXTvALUE8");
+        strValue2 = getIntent().getStringExtra("EdiTtEXTvALUE9");
+        strValue3 = getIntent().getStringExtra("EdiTtEXTvALUE10");
+        strValue4 = getIntent().getStringExtra("EdiTtEXTvALUE11");
+
+
+        float intValue4 = Float.parseFloat(strValue4);float intValue5 = Float.parseFloat(strValue5);
+        float intValue1 = Float.parseFloat(strValue1);float intValue2 = Float.parseFloat(strValue2);
+        float intValue3 = Float.parseFloat(strValue3);float intValue6 = Float.parseFloat(strValue6);
+        float intValue7 = Float.parseFloat(strValue7);float intValue8 = Float.parseFloat(strValue8);
+
+        float product = (float) ((intValue1* intValue2)*0.093);
+//1.Setback
+        float pintValue5 = (int)(intValue5*(8/100.0f));float pintValue6 = (int)(intValue6*(8/100.0f));float pintValue7 = (int)(intValue7*(12/100.0f));float pintValue8 = (int)(intValue8*(8/100.0f));
+        if (Float.compare(intValue1, 6f) <= 0 ||  Float.compare(intValue2, 6f) <= 0){
+            if ((Float.compare(intValue5, 1f) <= 0 ||  Float.compare(intValue6, 1f) <= 0) && (Float.compare(intValue7, 1f) <= 0 ||  Float.compare(intValue8, 1f) <= 0)){markingLabel1 = "low";}
+            else if((Float.compare(intValue5, 1f) <= 0 ||  Float.compare(intValue6, 1f) <= 0) && (Float.compare(intValue7, 1f) >= 0 ||  Float.compare(intValue8, 1f) >= 0)){markingLabel1 = "medium";}
+            else if((Float.compare(intValue5, 1f) >= 0 ||  Float.compare(intValue6, 1f) >= 0) && (Float.compare(intValue7, 1f) >= 0 ||  Float.compare(intValue8, 1f) >= 0)){markingLabel1 = "high";}
+
+        } else if (Float.compare(intValue1, 9f) <= 0 ||  Float.compare(intValue2, 9f) <= 0) {
+            if ((Float.compare(intValue5, 1f) <= 0 ||  Float.compare(intValue6, 1f) <= 0) && (Float.compare(intValue7, 1f) <= 0 ||  Float.compare(intValue8, 1f) <= 0)){markingLabel1 = "low";}
+            else if((Float.compare(intValue5, 1f) <= 0 ||  Float.compare(intValue6, 1f) <= 0) && (Float.compare(intValue7, 1f) >= 0 ||  Float.compare(intValue8, 1f) >= 0)){markingLabel1 = "medium";}
+            else if((Float.compare(intValue5, 1f) >= 0 ||  Float.compare(intValue6, 1f) >= 0) && (Float.compare(intValue7, 1f) >= 0 ||  Float.compare(intValue8, 1f) >= 0)){markingLabel1 = "high";}
+
+        } else if (Float.compare(intValue1, 9f) > 0 ||  Float.compare(intValue2, 9f) > 0) {
+            if ((Float.compare(intValue5, pintValue5) <= 0 || Float.compare(intValue6, pintValue6) <= 0) && (Float.compare(intValue7, pintValue7) <= 0 || Float.compare(intValue8, pintValue8) <= 0)) {
+                markingLabel1 = "low";
+            } if ((Float.compare(intValue5, pintValue5) <= 0 || Float.compare(intValue6, pintValue6) <= 0) && (Float.compare(intValue7, pintValue7) >= 0 || Float.compare(intValue8, pintValue8) >= 0)) {
+                markingLabel1 = "medium";
+            }if ((Float.compare(intValue5, pintValue5) >= 0 || Float.compare(intValue6, pintValue6) >= 0) && (Float.compare(intValue7, pintValue7) >= 0 || Float.compare(intValue8, pintValue8) >= 0)) {
+                markingLabel1 = "high";
+            }
+        }
+//2.FAR:
+        if (Float.compare(intValue3, 4f) <= 0) {
+            markingLabel2 = "low";
+        } else if (Float.compare(intValue3, 3f) <= 0 ) {
+            markingLabel2 = "medium";
+        } else if (Float.compare(intValue3, 2f) <= 0) {
+            markingLabel2 = "high";
+        }
+
+//3.Distance from plot centre to road
+        if (Float.compare(intValue4, 5f) <= 0) {
+            markingLabel3 = "low";
+        } else if (Float.compare(intValue4, 5f) > 0 && Float.compare(intValue4, 10f) <= 0) {
+            markingLabel3 = "medium";
+        } else if (Float.compare(intValue4, 10f) > 0) {
+            markingLabel3 = "high";
+        }
+      //.  Height of the floor(1)
+        markingLabel4 = "high";
+        bmiLabel = "Result:"+"\n"+"1.Setback                "+ markingLabel1+"\n"+"2.FAR               "+markingLabel2+"\n"+"3.Distance from plot centre to road(1)"+markingLabel3 +"\n"+ "4.Height of the floor(1)" + markingLabel4;
+
+
+        tv.setText("Plot Length  (in feet):" + strValue1 + "\n" + "Plot Breadth  (in feet):" + strValue2 + "\n" + "Number of floors  (Ground included):" + strValue3 + "\n" + "Distance from plot centre to road (in metre):" + strValue4 + "\n" + "Your Setback to the left. Distance (in feet):" + strValue5 + "\n" + "Your Setback to the left. Distance (in feet):" + strValue6 + "\n" + "Your Setback in the front. Distance (in feet):" + strValue7 + "\n" + "Your Setback to the rear. Distance (in feet):" + strValue8 + "\n" + "Now please see our marking scheme.Based on the input,we have total marks as 5:" + "\n" + "1.Setback of rear and front(1)+SetBack of left and right(1)" + "\n" + "2.Floor Aspect Ratio(1)" + "\n" + "3.Distance from plot centre to road(1)" + "\n" + "4.Height of the floor(1)" + "\n" + bmiLabel);
+    }
+    public void calculateBMI(View v) {
+
+       // String heightStr = height.getText().toString();
+       // String weightStr = weight./
+
+
+        if (strValue1 != null && !"".equals(strValue1)
+                && strValue2 != null && !"".equals(strValue2)
+                && strValue3 != null && !"".equals(strValue3)
+                && strValue4 != null && !"".equals(strValue4)
+                && strValue5 != null && !"".equals(strValue5)
+                && strValue6 != null && !"".equals(strValue6)
+                && strValue7 != null && !"".equals(strValue7)
+                && strValue8 != null && !"".equals(strValue8)) {
+                float intValue1 = Float.parseFloat(strValue1);
+                 float intValue2 = Float.parseFloat(strValue2);
+                 float intValue3 = Float.parseFloat(strValue3);
+                 float intValue4 = Float.parseFloat(strValue4);
+                 float intValue5 = Float.parseFloat(strValue5);
+                 float intValue6 = Float.parseFloat(strValue6);
+                 float intValue7 = Float.parseFloat(strValue7);
+                 float intValue8 = Float.parseFloat(strValue8);
+
+             //    String bmiLabel = "";
+          //  String markingLabel3 = null;String markingLabel4= null;
+
+
+            if (Float.compare(intValue4, 5f) <= 0) {
+                markingLabel3 = "low";
+            } else if (Float.compare(intValue4, 5f) > 0  &&  Float.compare(intValue4, 10f) <= 0) {
+                markingLabel3 = "medium";
+            }else if (Float.compare(intValue4, 10f) > 0) {
+                markingLabel3 = "high";
+            }
+
+            markingLabel4 = "high";
+
+            bmiLabel =  markingLabel3 + "\n\n" + markingLabel4;
+            tv1.setText(bmiLabel);
+               //  displayBMI(intValue4);
+        }
+    }
+      /*  private void displayBMI(float intValue4) {
+
+
+         }
+    */
+}
+
+    /*    public void calculateBMI(View v) {
+            String heightStr = height.getText().toString();
+            String weightStr = weight.getText().toString();
+
+            if (heightStr != null && !"".equals(heightStr)
+                    && weightStr != null  &&  !"".equals(weightStr)) {
+                float heightValue = Float.parseFloat(heightStr) / 100;
+                float weightValue = Float.parseFloat(weightStr);
+
+                float bmi = weightValue / (heightValue * heightValue);
+
+                displayBMI(bmi);
+            }
+        }
+
+        private void displayBMI(float bmi) {
+            String bmiLabel = "";
+
+            if (Float.compare(bmi, 15f) <= 0) {
+                bmiLabel = getString(R.string.very_severely_underweight);
+            } else if (Float.compare(bmi, 15f) > 0  &&  Float.compare(bmi, 16f) <= 0) {
+                bmiLabel = getString(R.string.severely_underweight);
+            } else if (Float.compare(bmi, 16f) > 0  &&  Float.compare(bmi, 18.5f) <= 0) {
+                bmiLabel = getString(R.string.underweight);
+            } else if (Float.compare(bmi, 18.5f) > 0  &&  Float.compare(bmi, 25f) <= 0) {
+                bmiLabel = getString(R.string.normal);
+            } else if (Float.compare(bmi, 25f) > 0  &&  Float.compare(bmi, 30f) <= 0) {
+                bmiLabel = getString(R.string.overweight);
+            } else if (Float.compare(bmi, 30f) > 0  &&  Float.compare(bmi, 35f) <= 0) {
+                bmiLabel = getString(R.string.obese_class_i);
+            } else if (Float.compare(bmi, 35f) > 0  &&  Float.compare(bmi, 40f) <= 0) {
+                bmiLabel = getString(R.string.obese_class_ii);
+            } else {
+                bmiLabel = getString(R.string.obese_class_iii);
+            }
+
+            bmiLabel = bmi + "\n\n" + bmiLabel;
+            result.setText(bmiLabel);
+        }
+    }
+
+    }
+    */
